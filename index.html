@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <ul class="nav__links">
+          <li class="nav__item dropdown-mobile">
+            <a class="nav__link dropbtn">
+              <div class="hamburger-icon"></div>
+              <div class="hamburger-icon"></div>
+              <div class="hamburger-icon"></div>
+            </a>
+            <div class="dropdown-content">
+              <a class="nav__link" href="#section--1">About Me</a>
+              <a class="nav__link" href="#section--2">My Projects</a>
+              <a class="nav__link" href="#footer--1">Github</a>
+              <!-- Add more dropdown links here -->
+            </div>
+          </li>
+        </ul>
+        <a href="mailto:vincentrandla@gmail.com" class="btn btn--contact"
+          >Contact me</a
+        >
+      </nav>
+    </header>
+    <div class="header-title">
+      <h1>
+        Hi! I am <span style="color: rgb(83, 83, 159)">Vincent</span>,<br />
+        <span style="color: rgb(83, 83, 159)">Full-stack Developer</span>.
+      </h1>
+    </div>
+
+    <section class="section" id="section--1">
+      <div class="section_title">
+        <h2>About Me</h2>
+      </div>
+      <p>
+        My name is Vincent, and i'm a 27 years old developer. <br />
+        I found my passion for web development and programming overall in March
+        2023. <br />
+        I have experience with HTML, CSS, JavaScript, and i am motivated to
+        learn more.
+      </p>
+      <ul class="tech_stack">
+        <li>Java</li>
+        <li>Spring Boot</li>
+        <li>JavaScript</li>
+        <li>React.js</li>
+        <li>PostgreSQL</li>
+        <li>GIT</li>
+      </ul>
+    </section>
+
+    <section class="section" id="section--2">
+      <div class="section_title">
+        <h2>My Projects</h2>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit distinctio
+        et obcaecati, ipsam sequi labore quaerat odio libero veniam
+        consequuntur! Sapiente, quae. In reprehenderit asperiores sit nostrum
+        molestias ipsam voluptatum, repellendus minus, praesentium recusandae
+        accusamus illum doloremque labore, consequatur sunt illo quaerat natus
+        aliquid tempora temporibus qui quam commodi consectetur.
+      </p>
+    </section>
+
+    <footer class="footer" id="footer--1">
+      <h2>CONTACT</h2>
+      <p class="contact_info">Tallinn, Estonia</p>
+      <div class="contact_logos">
+        <a class="footer-item" href="mailto:vincentrandla@gmail.com"
+          ><img
+            class="email_logo footer-logo"
+            src="EmailLogo3.png"
+            alt="E-mail logo"
+        /></a>
+        <a
+          class="footer-item"
+          href="https://github.com/vincentrandla"
+          target="blank"
+          ><img
+            class="github_logo footer-logo"
+            src="GithubLogo.png"
+            alt="Github Logo"
+        /></a>
+      </div>
+      <p class="copyright_text">© Vincent Randla 2024</p>
+    </footer>
+  </body>
+</html>
