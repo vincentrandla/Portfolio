@@ -185,6 +185,7 @@ li::marker {
     align-content: center;
     justify-content: center;
     padding: 6px;
+    margin-left: 0.5rem;
     margin-top: 4rem;
   }
 
@@ -321,6 +322,7 @@ li::marker {
     padding: 6px;
     margin-left: 4rem;
     margin-top: 4rem;
+    margin-bottom: 16rem;
   }
 
   .nav__links {
@@ -352,11 +354,12 @@ li::marker {
 
   .section_title {
     margin-left: 0.25rem;
-    margin-top: 8rem;
   }
 
   .section {
+    margin-top: 8rem;
     margin-left: 3rem;
+    margin-right: 3rem;
     transition: transform 1s, opacity 1s;
   }
 
