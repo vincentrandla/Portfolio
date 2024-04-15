@@ -34,3 +34,47 @@ allSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add("section--hidden");
 });
+
+const goUpButton = document.getElementById("goUpButton");
+
+// Show the button when scrolling down
+window.addEventListener("scroll", function () {
+  if (window.pageYOffset > 100) {
+    goUpButton.style.display = "block";
+  } else {
+    goUpButton.style.display = "none";
+  }
+});
+
+// Scroll to the top when the button is clicked
+function goUp() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Smooth scroll
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownMobile = document.querySelector(".dropdown-mobile");
+  const dropdownContent = document.querySelector(".dropdown-content");
+
+  dropdownMobile.addEventListener("click", function (e) {
+    e.preventDefault();
+    dropdownContent.classList.toggle("active");
+  });
+
+  dropdownContent.addEventListener("click", function (e) {
+    if (e.target.tagName === "A") {
+      dropdownContent.classList.remove("active");
+    }
+  });
+
+  document.addEventListener("click", function (e) {
+    if (
+      !dropdownMobile.contains(e.target) &&
+      !dropdownContent.contains(e.target)
+    ) {
+      dropdownContent.classList.remove("active");
+    }
+  });
+});

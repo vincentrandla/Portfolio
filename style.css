@@ -60,7 +60,7 @@ li::marker {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(66, 66, 132);
+  background-color: rgba(0, 212, 255, 1);
 }
 
 .contact_logos {
@@ -70,6 +70,19 @@ li::marker {
 
 .footer-logo {
   width: 5rem;
+}
+
+.go-up-button {
+  position: fixed;
+  bottom: 6rem;
+  right: 12rem;
+  padding: 10px;
+  background-color: rgb(151, 129, 129);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+  transition: opacity 0.3s ease;
 }
 
 /* Mobile Styles */
@@ -111,6 +124,14 @@ li::marker {
   }
 
   /* NAVBAR MOBILE*/
+
+  .dropdown-content {
+    display: none;
+  }
+
+  .dropdown-content.active {
+    display: block;
+  }
 
   .nav__item.dropdown-mobile {
     display: block; /* Show the dropdown menu on mobile */
@@ -259,6 +280,19 @@ li::marker {
   .copyright_text {
     font-size: 12px;
     margin-top: 2rem;
+  }
+
+  .go-up-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    transition: opacity 0.3s ease;
   }
 }
 
@@ -416,5 +450,9 @@ li::marker {
   .copyright_text {
     margin-top: 2rem;
     font-size: 16px;
+  }
+
+  .go-up-button:hover {
+    background-color: #0056b3;
   }
 }
