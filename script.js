@@ -53,28 +53,3 @@ function goUp() {
     behavior: "smooth", // Smooth scroll
   });
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  const dropdownMobile = document.querySelector(".dropdown-mobile");
-  const dropdownContent = document.querySelector(".dropdown-content");
-
-  dropdownMobile.addEventListener("click", function (e) {
-    e.preventDefault();
-    dropdownContent.classList.toggle("active");
-  });
-
-  dropdownContent.addEventListener("click", function (e) {
-    if (e.target.tagName === "A") {
-      dropdownContent.classList.remove("active");
-    }
-  });
-
-  document.addEventListener("click", function (e) {
-    if (
-      !dropdownMobile.contains(e.target) &&
-      !dropdownContent.contains(e.target)
-    ) {
-      dropdownContent.classList.remove("active");
-    }
-  });
-});
