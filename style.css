@@ -23,35 +23,19 @@ a {
 
 section {
   padding: 20px;
-  border-bottom: 1px solid rgb(83, 83, 159);
+  border-bottom: 2px solid transparent;
+  background-clip: padding-box;
+  border-image: linear-gradient(
+    -90deg,
+    rgba(2, 0, 36, 1) 10%,
+    rgba(26, 11, 11, 1) 65%,
+    rgba(0, 212, 255, 1) 160%
+  );
+  border-image-slice: 1;
 }
 
 li::marker {
   color: rgb(83, 83, 159);
-}
-
-.tech_stack {
-  font-family: inherit;
-  font-size: 1.5rem;
-  margin: 1.5rem;
-}
-
-/*CUSTOM SCROLLBAR*/
-::-webkit-scrollbar {
-  width: 7px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: rgb(26, 11, 11);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgb(83, 83, 159);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 212, 255, 1);
 }
 
 .contact_logos {
@@ -76,8 +60,34 @@ li::marker {
   transition: opacity 0.3s ease;
 }
 
+.tech_stack {
+  margin-top: 2rem;
+  border: none;
+  list-style-type: circle;
+  font-family: inherit;
+  font-size: 1.5rem;
+}
+
+/*CUSTOM SCROLLBAR*/
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(26, 11, 11);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(83, 83, 159);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 212, 255, 1);
+}
+
 /* Mobile Styles */
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 768px) {
   body {
     /* background-color: rgb(26, 11, 11); */
     background: rgb(2, 0, 36);
@@ -123,13 +133,13 @@ li::marker {
     margin: 5px 0;
   }
 
-  .dropdown-content {
-    display: none;
-  }
-
   .nav__item.dropdown-mobile {
     display: block; /* Show the dropdown menu on mobile */
     position: relative;
+  }
+
+  .dropdown-content {
+    display: none;
   }
 
   /* Dropdown Button */
@@ -175,6 +185,18 @@ li::marker {
     padding: 6px;
   }
 
+  .nav__links {
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    border-image: linear-gradient(
+      -90deg,
+      rgba(2, 0, 36, 1) 10%,
+      rgba(26, 11, 11, 1) 65%,
+      rgba(0, 212, 255, 1) 160%
+    );
+    border-image-slice: 1;
+  }
+
   .nav__item {
     margin-left: 1rem;
   }
@@ -203,6 +225,17 @@ li::marker {
   .section {
     transition: transform 1s, opacity 1s;
     margin-bottom: 2rem;
+  }
+
+  .tech_title {
+    display: none;
+  }
+
+  .tech_stack {
+    font-family: inherit;
+    font-size: 1.5rem;
+    margin: 1.5rem;
+    gap: 1.25rem;
   }
 
   .nav__link:link,
@@ -275,7 +308,7 @@ li::marker {
 }
 
 /* Desktop Styles */
-@media only screen and (min-width: 961px) {
+@media only screen and (min-width: 768px) {
   h1 {
     color: rgb(151, 129, 129);
     font-size: 46px;
@@ -297,6 +330,31 @@ li::marker {
     font-weight: 300;
     line-height: 150%;
     font-family: inherit;
+  }
+
+  ul {
+    background-color: transparent;
+    padding: 15px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  ul li {
+    margin: 0.5rem;
+  }
+
+  ul {
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-image: linear-gradient(
+      -90deg,
+      rgba(2, 0, 36, 1) 10%,
+      rgba(26, 11, 11, 1) 65%,
+      rgba(0, 212, 255, 1) 160%
+    );
+    border-image-slice: 1;
   }
 
   /* NAVBAR DESKTOP */
@@ -362,13 +420,15 @@ li::marker {
 
   .section_title {
     margin-left: 0.25rem;
+    display: flex;
+    justify-content: space-between;
   }
 
   .section {
     margin-top: 8rem;
     margin-left: 3rem;
     margin-right: 3rem;
-    transition: transform 1s, opacity 1s;
+    /* transition: transform 1s, opacity 1s; */
   }
 
   .nav__link:link,
@@ -397,10 +457,10 @@ li::marker {
     transform: scale(1.15);
   }
 
-  .section--hidden {
+  /* .section--hidden {
     opacity: 0;
     transform: translateY(8rem);
-  }
+  } */
 
   /* FOOTER DESKTOP */
 
