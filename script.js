@@ -53,3 +53,17 @@ function goUp() {
     behavior: "smooth", // Smooth scroll
   });
 }
+
+const toggleBtn = document.getElementById("toggle--btn");
+const cvImage = document.querySelector(".my_cv");
+
+toggleBtn.addEventListener("click", function () {
+  // Check if the CV image is currently hidden
+  if (cvImage.style.display === "none" || cvImage.style.display === "") {
+    cvImage.style.display = "block"; // Show the CV image
+    toggleBtn.textContent = "Hide CV"; // Change button text to "Hide CV"
+  } else {
+    cvImage.style.display = "none"; // Hide the CV image
+    toggleBtn.textContent = "Show CV"; // Change button text back to "Show CV"
+  }
+});

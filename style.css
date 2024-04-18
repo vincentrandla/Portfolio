@@ -68,6 +68,45 @@ li::marker {
   font-size: 1.5rem;
 }
 
+.toggle_btn {
+  margin-left: 0.25rem;
+  margin-bottom: 2rem;
+}
+
+.toggle_btn,
+.toggle_btn:link,
+.toggle_btn:visited {
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  font-weight: 400;
+  color: rgb(83, 83, 159);
+  transition: all 0.3s;
+}
+
+.toggle_btn:hover {
+  color: rgb(151, 129, 129);
+  transition: 0.3s;
+  transform: scale(1.05);
+}
+
+.my_cv {
+  margin-top: 2rem;
+  display: none;
+  width: 40rem;
+  height: 50rem;
+  object-fit: cover;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  border-image: linear-gradient(
+    -90deg,
+    rgba(2, 0, 36, 1) 10%,
+    rgba(26, 11, 11, 1) 65%,
+    rgba(0, 212, 255, 1) 160%
+  );
+  border-image-slice: 1;
+}
+
 /*CUSTOM SCROLLBAR*/
 ::-webkit-scrollbar {
   width: 7px;
@@ -186,7 +225,8 @@ li::marker {
   }
 
   .nav__links {
-    border: 3px solid transparent;
+    padding: 15px;
+    border: 2px solid transparent;
     background-clip: padding-box;
     border-image: linear-gradient(
       -90deg,
@@ -236,6 +276,19 @@ li::marker {
     font-size: 1.5rem;
     margin: 1.5rem;
     gap: 1.25rem;
+  }
+
+  .toggle_btn {
+    border: 2px solid transparent;
+    border-image: linear-gradient(
+      -90deg,
+      rgba(2, 0, 36, 1) 10%,
+      rgba(26, 11, 11, 1) 65%,
+      rgba(0, 212, 255, 1) 160%
+    );
+    border-image-slice: 1;
+    padding: 10px;
+    box-shadow: 3px 3px 4px rgb(83, 83, 159);
   }
 
   .nav__link:link,
@@ -425,7 +478,7 @@ li::marker {
   }
 
   .section {
-    margin-top: 8rem;
+    margin-top: 2rem;
     margin-left: 3rem;
     margin-right: 3rem;
     /* transition: transform 1s, opacity 1s; */
