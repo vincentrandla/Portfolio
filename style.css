@@ -38,28 +38,6 @@ li::marker {
   color: rgb(83, 83, 159);
 }
 
-.contact_logos {
-  display: flex;
-  justify-content: center;
-}
-
-.footer-logo {
-  width: 5rem;
-}
-
-.go-up-button {
-  position: fixed;
-  bottom: 6rem;
-  right: 6rem;
-  padding: 10px;
-  background-color: rgb(7, 86, 102);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none; /* Initially hidden */
-  transition: opacity 0.3s ease;
-}
-
 .tech_stack {
   margin-top: 2rem;
   border: none;
@@ -71,6 +49,7 @@ li::marker {
 .toggle_btn {
   margin-left: 0.25rem;
   margin-bottom: 2rem;
+  cursor: pointer;
 }
 
 .toggle_btn,
@@ -105,6 +84,28 @@ li::marker {
     rgba(0, 212, 255, 1) 160%
   );
   border-image-slice: 1;
+}
+
+.contact_logos {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo {
+  width: 5rem;
+}
+
+.go-up-button {
+  position: fixed;
+  bottom: 6rem;
+  right: 6rem;
+  padding: 10px;
+  background-color: rgb(7, 86, 102);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+  transition: opacity 0.3s ease;
 }
 
 /*CUSTOM SCROLLBAR*/
@@ -267,6 +268,11 @@ li::marker {
     margin-bottom: 2rem;
   }
 
+  .my_cv {
+    width: 350px;
+    height: 600px;
+  }
+
   .tech_title {
     display: none;
   }
@@ -385,15 +391,6 @@ li::marker {
     font-family: inherit;
   }
 
-  ul {
-    background-color: transparent;
-    padding: 15px;
-  }
-
-  ul {
-    list-style-type: none;
-  }
-
   ul li {
     margin: 0.5rem;
   }
@@ -403,11 +400,14 @@ li::marker {
     background-clip: padding-box;
     border-image: linear-gradient(
       -90deg,
-      rgba(2, 0, 36, 1) 10%,
+      transparent 60%,
       rgba(26, 11, 11, 1) 65%,
       rgba(0, 212, 255, 1) 160%
     );
     border-image-slice: 1;
+    list-style-type: none;
+    background-color: transparent;
+    padding: 15px;
   }
 
   /* NAVBAR DESKTOP */
