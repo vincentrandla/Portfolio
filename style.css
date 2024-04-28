@@ -171,6 +171,7 @@ li::marker {
     height: 3px;
     background-color: rgb(151, 129, 129);
     margin: 5px 0;
+    transition: 0.4s;
   }
 
   .nav__item.dropdown-mobile {
@@ -207,6 +208,17 @@ li::marker {
     text-decoration: none;
   }
 
+  .change .hamburger-icon:nth-child(1) {
+    transform: translate(0, 8px) rotate(45deg);
+  }
+
+  .change .hamburger-icon:nth-child(2) {
+    opacity: 0;
+  }
+
+  .change .hamburger-icon:nth-child(3) {
+    transform: translate(0, -8px) rotate(-45deg);
+  }
   /* HEADER MOBILE */
 
   .header {

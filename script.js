@@ -67,3 +67,17 @@ toggleBtn.addEventListener("click", function () {
     toggleBtn.textContent = "Show CV";
   }
 });
+
+function toggleDropdown(event) {
+  const dropdownContent = document.getElementById("dropdownContent");
+  if (dropdownContent.style.display == "block") {
+    dropdownContent.style.display = "none";
+  } else {
+    dropdownContent.style.display = "block";
+  }
+  changeMenu(event.currentTarget);
+}
+
+function changeMenu(element) {
+  element.classList.toggle("change");
+}
