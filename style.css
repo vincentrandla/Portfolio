@@ -496,6 +496,100 @@ li::marker {
     /* transition: transform 1s, opacity 1s; */
   }
 
+  .projects_main {
+    display: flex;
+  }
+
+  .slider_container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .reisi_picture {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .reisi_picture.active {
+    opacity: 1;
+  }
+
+  .arrow {
+    background-color: rgb(7, 86, 102);
+    border-radius: 50%;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .right_arrow {
+    right: 30px;
+  }
+
+  .left_arrow {
+    left: 30px;
+  }
+
+  .dinner_project,
+  .reisi_project {
+    padding: 1rem;
+    flex: 1;
+  }
+
+  .dinner_picture,
+  .reisi_picture {
+    border-radius: 18px;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+  }
+
+  .arrow:hover {
+    background-color: rgb(12, 78, 92);
+  }
+
+  .reisi_description {
+    margin-left: 2rem;
+  }
+
+  .dinner_description {
+    margin-top: 2rem;
+  }
+
+  .dot_container {
+    text-align: center;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    background-color: rgb(7, 86, 102);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: white;
+  }
+
   .nav__link:link,
   .nav__link:visited,
   .footer-item:link,
