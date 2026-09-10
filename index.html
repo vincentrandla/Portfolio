@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -34,31 +34,39 @@
       <nav class="nav">
         <ul class="nav__links">
           <li class="nav__item dropdown-mobile">
-            <a class="nav__link dropbtn" onclick="toggleDropdown(event)">
+            <a
+              class="nav__link dropbtn"
+              href="#"
+              onclick="toggleDropdown(event)"
+            >
               <div class="hamburger-icon"></div>
               <div class="hamburger-icon"></div>
               <div class="hamburger-icon"></div>
             </a>
             <div class="dropdown-content" id="dropdownContent">
-              <a class="nav__link" href="#section--1">About Me</a>
-              <a class="nav__link" href="#section--2">My Projects</a>
-              <a class="nav__link" href="#section--cv">My CV</a>
-              <a class="nav__link" href="#footer--1">Github</a>
+              <a class="nav__link active" href="#section--1"> About Me </a>
+              <a class="nav__link" href="#section--2"> Tech Stack </a>
+              <a class="nav__link" href="#section--3"> My projects </a>
+              <a
+                class="nav__link"
+                href="https://github.com/vincentrandla"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github
+              </a>
             </div>
           </li>
         </ul>
-        <a href="mailto:vincentrandla@gmail.com" class="btn btn--contact"
-          >Contact me</a
-        >
       </nav>
     </header>
-    <div class="header-title">
-      <h1>
-        Hi! I am <span style="color: rgb(83, 83, 159)">Vincent</span>,<br />
-        <span style="color: rgb(83, 83, 159)">Full-stack Developer</span> in
-        <br />
-        Tallinn, Estonia
+    <div class="header_title">
+      <h1 class="title">
+        Hi! I am Vincent, <br />
+        <span style="color: rgb(83, 83, 159)">Full-stack Developer</span> <br />
+        from Tallinn, Estonia.
       </h1>
+      <img class="coding_gif" src="Assets/coding-with-headphones.gif" alt="" />
     </div>
 
     <section class="section" id="section--1">
@@ -97,43 +105,65 @@
             <span style="color: rgb(83, 83, 159)">proficient</span> developer.
           </p>
         </div>
-        <ul class="tech_stack">
-          <li>Java</li>
-          <li>Spring Boot</li>
-          <li>JavaScript</li>
-          <li>React.js</li>
-          <li>PostgreSQL</li>
-          <li>GIT</li>
-        </ul>
       </div>
     </section>
 
-    <section class="section" id="section--2">
+    <section class="tech_section section" id="section--2">
+      <h2>My Tech Stack</h2>
+      <p class="tech_subtitle">Technologies I use to build my projects.</p>
+
+      <div class="tech_grid">
+        <div class="tech_card">
+          <div class="tech_icon">☕</div>
+          <h3>Java</h3>
+        </div>
+
+        <div class="tech_card">
+          <div class="tech_icon">🌱</div>
+          <h3>Spring Boot</h3>
+        </div>
+
+        <div class="tech_card">
+          <div class="tech_icon">JS</div>
+          <h3>JavaScript</h3>
+        </div>
+
+        <div class="tech_card">
+          <div class="tech_icon">⚛</div>
+          <h3>React</h3>
+        </div>
+
+        <div class="tech_card">
+          <div class="tech_icon">🐘</div>
+          <h3>PostgreSQL</h3>
+        </div>
+
+        <div class="tech_card">
+          <div class="tech_icon">&lt;/&gt;</div>
+          <h3>HTML</h3>
+        </div>
+
+        <div class="tech_card">
+          <div class="tech_icon">#</div>
+          <h3>CSS</h3>
+        </div>
+
+        <div class="tech_card">
+          <div class="tech_icon">⎇</div>
+          <h3>Git</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section--3">
       <div class="section_title">
         <h2>My Projects</h2>
       </div>
       <main class="projects_main">
-        <div class="dinner_project">
-          <img class="dinner_picture" src="Assets/whatsfordinnerpic.png" />
-          <div class="dinner_description">
-            <p>
-              A small fun project I did to get some dinner ideas for myself.
-            </p>
-            <a href="https://dinner-ideas.netlify.app/" target="_blank"
-              >Link to the webpage.</a
-            >
-          </div>
-        </div>
         <div class="reisi_project">
           <div class="slider_container">
-            <img
-              class="reisi_picture"
-              src="Assets/reisigalerii frontpage.png"
-            />
-            <img
-              class="reisi_picture"
-              src="Assets/reisigalerii offerpage.png"
-            />
+            <img class="reisi_picture" src="Assets/whatsfordinnerpic.png" />
+            <img class="reisi_picture" src="Assets/dinnermeal.png" />
             <button class="arrow left_arrow">
               <svg
                 fill="white"
@@ -180,25 +210,16 @@
           <div class="dot_container"></div>
           <div class="reisi_description">
             <p>
-              My biggest project yet, which I'm tinkering every now and then
+              A small fun project I did to get some dinner ideas for myself.
               <br />
-              using Reactjs, Spring Boot and my own database with PostgreSQL.
+              Learned how to use API endpoints with this project.
             </p>
-            <a
-              href="https://github.com/vincentrandla/Reisigalerii"
-              target="_blank"
-              >Link to source code.</a
+            <a href="https://dinner-ideas.netlify.app/" target="_blank"
+              >Link to the webpage.</a
             >
           </div>
         </div>
       </main>
-    </section>
-
-    <section class="section cv_section" id="section--cv">
-      <div>
-        <button class="toggle_btn" id="toggle--btn">Show CV</button>
-      </div>
-      <img class="my_cv" src="Assets/VR-CV.jpg" alt="My CV" />
     </section>
 
     <footer class="footer" id="footer--1">

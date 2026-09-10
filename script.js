@@ -4,36 +4,38 @@ const section1 = document.querySelector("#section--1");
 
 // Smooth navigation
 document.querySelector(".nav__links").addEventListener("click", function (e) {
-  e.preventDefault();
+  if (!e.target.classList.contains("nav__link")) return;
 
-  // Matching strategy
-  if (e.target.classList.contains("nav__link")) {
-    const id = e.target.getAttribute("href");
+  const id = e.target.getAttribute("href");
+
+  // For external links to work in navbar
+  if (id.startsWith("#")) {
+    e.preventDefault();
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
   }
 });
 
-// // Reveal sections
-// const allSections = document.querySelectorAll(".section");
+// Reveal sections
+const allSections = document.querySelectorAll(".section");
 
-// const revealSection = function (entries, observer) {
-//   const [entry] = entries;
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
 
-//   if (!entry.isIntersecting) return;
+  if (!entry.isIntersecting) return;
 
-//   entry.target.classList.remove("section--hidden");
-//   observer.unobserve(entry.target);
-// };
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
+};
 
-// const sectionObserver = new IntersectionObserver(revealSection, {
-//   root: null,
-//   threshold: 0.1,
-// });
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.1,
+});
 
-// allSections.forEach(function (section) {
-//   sectionObserver.observe(section);
-//   section.classList.add("section--hidden");
-// });
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add("section--hidden");
+});
 
 const goUpButton = document.getElementById("goUpButton");
 
@@ -129,20 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", showPreviousSlide);
 });
 
-// Hiding / displaying CV
-const toggleBtn = document.getElementById("toggle--btn");
-const cvImage = document.querySelector(".my_cv");
-
-toggleBtn.addEventListener("click", function () {
-  if (cvImage.style.display === "none" || cvImage.style.display === "") {
-    cvImage.style.display = "block";
-    toggleBtn.textContent = "Hide CV";
-  } else {
-    cvImage.style.display = "none";
-    toggleBtn.textContent = "Show CV";
-  }
-});
-
 // Mobile hamburger menu dropdown
 
 function toggleDropdown(event) {
@@ -158,3 +146,38 @@ function toggleDropdown(event) {
 function changeMenu(element) {
   element.classList.toggle("change");
 }
+
+// Underline for navbar headlines
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".dropdown-content .nav__link");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Remove active from every link
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        // Find the link matching this section
+        const activeLink = document.querySelector(
+          `.nav__link[href="#${entry.target.id}"]`,
+        );
+
+        // Add active
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+      }
+    });
+  },
+  {
+    threshold: 0.5,
+  },
+);
+
+sections.forEach((section) => {
+  observer.observe(section);
+});
