@@ -402,9 +402,6 @@ li::marker {
     align-content: center;
     justify-content: center;
     padding: 6px;
-    margin-left: 4rem;
-    margin-top: 4rem;
-    margin-bottom: 15rem;
   }
 
   .title {
@@ -452,9 +449,8 @@ li::marker {
   }
 
   .section {
-    margin-top: 2rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    max-width: 1400px;
+    margin: 2rem auto;
     transition:
       transform 1s,
       opacity 1s;
@@ -465,14 +461,14 @@ li::marker {
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     max-width: 900px;
-    margin: 4rem auto 4rem 0;
+    margin: 4rem auto;
   }
 
   .tech_card {
     padding: 30px 20px;
     border: 1px solid #333;
     border-radius: 15px;
-    background: rgb(41, 71, 77);
+    background: #1e293b;
     color: white;
     text-align: center;
 
@@ -506,92 +502,136 @@ li::marker {
     display: flex;
   }
 
-  .slider_container {
+  .carousel-wrap {
     position: relative;
     width: 100%;
+    max-width: 1200px;
+    padding: 60px 0;
+    margin: 0 auto;
+  }
+
+  .carousel {
+    position: relative;
     height: 400px;
+    perspective: 1400px;
+  }
+
+  .card {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 320px;
+    height: 400px;
+    border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .reisi_picture {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-
-  .reisi_picture.active {
-    opacity: 1;
-  }
-
-  .arrow {
-    background-color: rgb(7, 86, 102);
-    border-radius: 50%;
-    color: white;
-    border: none;
-    padding: 10px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    transition:
+      transform 0.5s ease,
+      opacity 0.5s ease,
+      filter 0.5s ease;
     cursor: pointer;
-    z-index: 10;
+    background: #1e293b;
+  }
+
+  .card .thumb {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card .body {
+    padding: 18px 20px;
+    color: #e2e8f0;
+  }
+
+  .card .body h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    line-height: 1.3;
+  }
+
+  .card .body p {
+    margin: 0 0 14px;
+    font-size: 12.5px;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  .card .links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .card .links a {
+    font-size: 11px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(148, 163, 184, 0.15);
+    color: #e2e8f0;
+    text-decoration: none;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    pointer-events: none; /* enabled only on the centered card via JS */
+  }
+
+  .card.active .links a {
+    pointer-events: auto;
+  }
+
+  .card.active .links a:hover {
+    background: rgba(148, 163, 184, 0.3);
+  }
+
+  .nav-btn {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
+    transition: background 0.2s ease;
   }
 
-  .right_arrow {
-    right: 30px;
+  .nav-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  .nav-btn.prev {
+    left: 10px;
+  }
+  .nav-btn.next {
+    right: 10px;
   }
 
-  .left_arrow {
-    left: 30px;
-  }
-
-  .dinner_project,
-  .reisi_project {
-    padding: 1rem;
-    flex: 1;
-  }
-
-  .dinner_picture,
-  .reisi_picture {
-    border-radius: 18px;
-    width: 100%;
-    height: auto;
-    max-width: 800px;
-  }
-
-  .arrow:hover {
-    background-color: rgb(12, 78, 92);
-  }
-
-  .reisi_description {
-    display: grid;
+  .dots {
+    display: flex;
     justify-content: center;
-    margin: 2rem;
-  }
-
-  .dot_container {
-    text-align: center;
+    gap: 8px;
+    margin-top: 24px;
   }
 
   .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 4px;
-    background-color: rgb(7, 86, 102);
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
   }
 
   .dot.active {
-    background-color: white;
+    background: #a5b4fc;
+    transform: scale(1.3);
   }
 
   .nav__link:link,
@@ -672,52 +712,5 @@ li::marker {
 
   .go-up-button:hover {
     background-color: rgb(12, 78, 92);
-  }
-
-  .animated_text {
-    font-size: 46px;
-    min-width: 280px;
-  }
-
-  .animated_text span {
-    position: relative;
-    color: rgb(83, 83, 159);
-    white-space: nowrap; /* Prevent text from breaking */
-  }
-
-  .animated_text span::after {
-    content: "";
-    position: absolute;
-    width: 2px;
-    height: 100%;
-    background-color: rgb(83, 83, 159);
-    right: 0;
-    top: 0;
-    animation: cursor-blink 0.8s steps(2) infinite;
-  }
-
-  @keyframes cursor-blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  .typing {
-    overflow: hidden; /* Hide overflow while typing */
-    display: inline-block;
-    animation: typing 2s steps(14) 1 forwards;
   }
 }

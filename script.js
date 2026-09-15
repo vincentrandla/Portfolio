@@ -181,3 +181,95 @@ const observer = new IntersectionObserver(
 sections.forEach((section) => {
   observer.observe(section);
 });
+
+const projects = [
+  {
+    title: "Reisigalerii",
+    description:
+      "A travel agency website for the Estonian market. Users browse by country, then connect with a real agent to finalize the booking.",
+    thumbnail: "/Assets/screenshot-home.png",
+    demoUrl: "https://reisigalerii-frontend.vercel.app/",
+    repoUrl: "https://github.com/vincentrandla/Reisigalerii-frontend",
+  },
+  {
+    title: "What's for Dinner?",
+    description:
+      "A small fun project to get dinner ideas. Learned how to use and consume public API endpoints.",
+    thumbnail: "/Assets/whatsfordinnerpic.png",
+    demoUrl: "https://dinner-ideas.netlify.app/",
+    repoUrl: "https://github.com/vincentrandla/What-s-for-Dinner",
+  },
+];
+
+const carousel = document.getElementById("carousel");
+const dotsWrap = document.getElementById("dots");
+let current = 0;
+let cardEls = [];
+
+function buildCards() {
+  projects.forEach((p, i) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+        <img class="thumb" src="${p.thumbnail}" alt="${p.title}" />
+        <div class="body">
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <div class="links">
+            <a href="${p.demoUrl}" target="_blank" rel="noopener">Live demo</a>
+            <a href="${p.repoUrl}" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      `;
+    card.addEventListener("click", () => goTo(i));
+    carousel.appendChild(card);
+    cardEls.push(card);
+  });
+
+  projects.forEach((_, i) => {
+    const dot = document.createElement("div");
+    dot.className = "dot";
+    dot.addEventListener("click", () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+}
+
+function render() {
+  const dots = dotsWrap.children;
+  cardEls.forEach((card, i) => {
+    const offset = i - current;
+    const abs = Math.abs(offset);
+
+    let opacity = 1;
+    let zIndex = 10 - abs;
+    const x = offset * 200;
+    const scale = 1 - abs * 0.18;
+    const rotate = offset * -22;
+    opacity = abs > 3 ? 0 : 1 - abs * 0.3;
+
+    card.style.transform = `translate(-50%, 0) translateX(${x}px) scale(${scale}) rotateY(${rotate}deg)`;
+    card.style.opacity = opacity;
+    card.style.zIndex = zIndex;
+    card.style.filter = abs === 0 ? "brightness(1)" : "brightness(0.55)";
+    card.classList.toggle("active", i === current);
+  });
+
+  Array.from(dots).forEach((dot, i) => {
+    dot.classList.toggle("active", i === current);
+  });
+}
+
+function goTo(index) {
+  current = (index + projects.length) % projects.length;
+  render();
+}
+
+document
+  .getElementById("prevBtn")
+  .addEventListener("click", () => goTo(current - 1));
+document
+  .getElementById("nextBtn")
+  .addEventListener("click", () => goTo(current + 1));
+
+buildCards();
+render();
