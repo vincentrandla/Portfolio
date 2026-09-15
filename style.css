@@ -437,10 +437,10 @@ li::marker {
 
   /* SECTION DESKTOP */
 
-  .section--hidden {
+  /*   .section--hidden {
     opacity: 0;
     transform: translateY(8rem);
-  }
+  } */
 
   .section_title {
     margin-left: 0.25rem;
